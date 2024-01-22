@@ -1,0 +1,90 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
+    height: 100vh;
+}
+
+main{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.carosello{
+    width: 70%;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+.carosello .left-carosello{
+    width: 100%;
+    position: relative;
+    border: 1px solid red;
+}
+
+.carosello .left-carosello div{
+    position: absolute;
+    bottom: 10px;
+    right: 20px;
+    text-align: right;
+
+}
+
+.carosello .right-carosello{
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    background-color: black;
+    position: relative;
+    justify-content: space-between;
+}
+
+.fa-chevron-up{
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    top: 5px;
+}
+
+.fa-chevron-down{
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+.fa-solid{
+    background-color: lightgrey;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.carosello .right-carosello .miniature{
+    display: flex;
+    flex-basis: calc(100% / 4);
+}
+
+img{
+    display: block;
+    width: 100%;
+    object-fit: cover;
+}
+
+.d-none{
+    display: none;
+}
+
+.active{
+    display:block;
+}
+
+
