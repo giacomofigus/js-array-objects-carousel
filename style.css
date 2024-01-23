@@ -1,90 +1,101 @@
-*{
-    margin: 0;
+* {
     padding: 0;
+    margin: 0;
     box-sizing: border-box;
 }
 
-body{
+.container {
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: 'Poppins', sans-serif;
-    height: 100vh;
 }
 
-main{
-    width: 100%;
-    display: flex;
-    justify-content: center;
-}
-
-.carosello{
-    width: 70%;
-
-    display: flex;
-    justify-content: space-between;
-}
-
-.carosello .left-carosello{
-    width: 100%;
+.slider {
+    width: 50vw;
+    height: 50vh;
     position: relative;
-    border: 1px solid red;
 }
 
-.carosello .left-carosello div{
+.item-slider, .item-thumbnails{
+    height: 100%;
+}
+
+.item {
+    height: 100%;
+    display: none;
+}
+
+.item img, .thumb img {
+   width: 100%;
+   height: 100%;
+   object-fit: cover; 
+}
+
+.arrow {
     position: absolute;
-    bottom: 10px;
-    right: 20px;
-    text-align: right;
-
-}
-
-.carosello .right-carosello{
-    width: 20%;
-    display: flex;
-    flex-direction: column;
-    background-color: black;
-    position: relative;
-    justify-content: space-between;
-}
-
-.fa-chevron-up{
-    position: absolute;
+    width: 40px;
+    height: 40px;
+    background-color: rgb(128, 128, 128, 0.6);
+    border-radius: 50%;
+    font-weight: 800;
     left: 50%;
-    transform: translate(-50%);
+    transform: translateX(-50%);
+    text-align: center;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.next {
     top: 5px;
 }
 
-.fa-chevron-down{
-    position: absolute;
+.prev {
     bottom: 5px;
-    left: 50%;
-    transform: translate(-50%);
 }
 
-.fa-solid{
-    background-color: lightgrey;
+.prev:hover, .next:hover {
+    background-color: rgb(128, 128, 128, 0.9);
+}
+
+.item.active {
+    display: block;
+}
+
+.circles-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 10px;
+}
+
+.circle {
+    display: inline-block;
+    background-color: rgb(128, 128, 128, 0.4);
+    width: 10px;
+    height: 10px;
     border-radius: 50%;
     cursor: pointer;
 }
 
-.carosello .right-carosello .miniature{
-    display: flex;
-    flex-basis: calc(100% / 4);
+.circle.active, .circle:hover {
+    background-color: rgb(128, 128, 128, 0.9);
 }
 
-img{
-    display: block;
-    width: 100%;
-    object-fit: cover;
+.thumbnails {
+    width: 20vw;
+    height: 50vh;
 }
 
-.d-none{
-    display: none;
+.thumb {
+    height: 20%;
 }
 
-.active{
-    display:block;
+.thumb img {
+    background-color: black;
+    opacity: 0.5;
 }
 
-
+.thumb.active img {
+    opacity: 1;
+}

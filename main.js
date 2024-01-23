@@ -25,39 +25,72 @@
     BONUS 3:
     Aggiungere bottoni di start/stop e di inversione del meccanismo di autoplay.
 */
-let arrowDown = document.getElementById("arrowDown")
-let arrowUp = document.getElementById("arrowUp")
+const images_array = [
+    'img-1.jpg',
+    'img-2.jpg',
+    'img-3.jpg',
+    'img-4.jpg',
+    'img-5.jpg',
+];
 
-arrayImmagini = [
-    {
-        immagine: "./img/img-1.jpg",
-        titolo: "Titolo molto lungo 1",
-        paragrafo: "Lorem ipsum dolorem sit amet bla.",
-    },
-    {
-        immagine: "./img/img-2.jpg",
-        titolo: "Titolo molto lungo 2",
-        paragrafo: "Lorem ipsum dolorem sit amet bla.",
-    },
-    {
-        immagine: "./img/img-3.jpg",
-        titolo: "Titolo molto lungo 3",
-        paragrafo: "Lorem ipsum dolorem sit amet bla.",
-    },
-    {
-        immagine: "./img/img-4.jpg",
-        titolo: "Titolo molto lungo 4",
-        paragrafo: "Lorem ipsum dolorem sit amet bla.",
-    },
-    {
-        immagine: "./img/img-5.jpg",
-        titolo: "Titolo molto lungo 5",
-        paragrafo: "Lorem ipsum dolorem sit amet bla.",
-    },
+let item_content = '';
+let item_thumb = '';
 
-]
+for (let i = 0; i < images_array.length; i++) {
+    item_content += `<div class="item"><img src="./img/${ images_array[i] }"></div>`;
+    item_thumb += `<div class="thumb"><img src="./img/${ images_array[i] }"></div>`; 
+};
 
-// al click dell'arrow down 
-arrowDown.addEventListener('click', function(){
-    
-})
+const items_slider = document.querySelector('.item-slider').innerHTML = item_content;
+const items_thumbnails = document.querySelector('.item-thumbnails').innerHTML = item_thumb;
+
+const items = document.getElementsByClassName('item');
+const circles = document.getElementsByClassName('circle');
+const thumb = document.getElementsByClassName('thumb');
+console.log(thumb);
+
+let item_active = 0;
+
+items[item_active].classList.add('active');
+circles[item_active].classList.add('active');
+thumb[item_active].classList.add('active');
+
+let next = document.querySelector('.next');
+let prev = document.querySelector('.prev');
+
+next.addEventListener ('click', function() {
+
+    items[item_active].classList.remove('active');
+    circles[item_active].classList.remove('active');
+    thumb[item_active].classList.remove('active');
+
+    if ( item_active === images_array.length-1 ) {
+        item_active = 0;
+    }
+    else {
+        item_active++;
+    };
+
+    items[item_active].classList.add('active');
+    circles[item_active].classList.add('active');
+    thumb[item_active].classList.add('active');
+});
+
+prev.addEventListener ('click', function() {
+
+    items[item_active].classList.remove('active');
+    circles[item_active].classList.remove('active');
+    thumb[item_active].classList.remove('active');
+
+    if ( item_active === 0 ) {
+        item_active = images_array.length - 1;
+    }
+    else {
+        item_active--;
+    };
+
+    items[item_active].classList.add('active');
+    circles[item_active].classList.add('active');
+    thumb[item_active].classList.add('active');
+});
+
